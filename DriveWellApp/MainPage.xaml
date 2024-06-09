@@ -4,7 +4,144 @@
              x:Class="DriveWellApp.MainPage">
 
     <ScrollView>
-        
+        <VerticalStackLayout>
+            <Grid
+                RowDefinitions="2*,*,*,*,*,*,5*" ColumnDefinitions="*,3*">
+
+                <Label
+                    Grid.Row="0"
+                    Text="Drivewell Inc."
+                    TextColor="White"
+                    BackgroundColor="Purple"
+                    Grid.ColumnSpan="2"
+                    VerticalOptions="EndAndExpand"
+                    />
+
+                <!-- VIN Label and Entry-->
+                <Label
+                    Grid.Row="1" Grid.Column="0"
+                    Text="VIN:"
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    />
+
+                <Entry
+                    Grid.Row="1" Grid.Column="1"
+                    Placeholder="Enter 17 Digit VIN number"
+                    TextColor="White"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Margin="5"
+                    />
+
+                <!-- Car Make Label and Entry-->
+                <Label
+                    Grid.Row="2" Grid.Column="0"
+                    Text="Car make: "
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    />
+
+                <Entry
+                    Grid.Row="2" Grid.Column="1"
+                    Placeholder="e.g Mercedes, BMW"
+                    TextColor="White"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Margin="5"
+                    />
+
+
+                <!-- Car Type Label and Picker-->
+                <Label
+                    Grid.Row="3" Grid.Column="0"
+                    Text="Car Type:"
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    />
+
+                <Picker
+                    Grid.Row="3" Grid.Column="1"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Margin="5">
+                    
+                    <Picker.ItemsSource>
+                        
+                    </Picker.ItemsSource>
+                </Picker>
+
+
+                <!-- Car Price Label and Entry-->
+                <Label
+                    Grid.Row="4" Grid.Column="0"
+                    Text="Car Price:"
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    />
+
+                <Entry
+                    Grid.Row="4" Grid.Column="1"
+                    Placeholder="e.g 35000.75"
+                    TextColor="White"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Margin="5"
+                    />
+
+
+                <!-- Year Label and Picker-->
+                <Label
+                    Grid.Row="5" Grid.Column="0"
+                    Text="Year:"
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    />
+
+                <Picker
+                    Grid.Row="5" Grid.Column="1"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Margin="5">
+                    <Picker.ItemsSource>
+
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <HorizontalStackLayout
+                    Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                    HorizontalOptions="Center" VerticalOptions="Center">
+
+                    <Button
+                        Text="Add Car"
+                        BackgroundColor="Blue"
+                        TextColor="White"
+                        Margin="5"
+                        />
+
+
+                    <Button
+                        Text="Clear"
+                        BackgroundColor="Blue"
+                        TextColor="White"
+                        Margin="5"/>
+
+                    <Button
+                        Text="Update"
+                        BackgroundColor="Blue"
+                        TextColor="White"
+                        Margin="5"/>
+
+                </HorizontalStackLayout>
+                <!--Buttons-->
+                
+            </Grid>
+        </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>
