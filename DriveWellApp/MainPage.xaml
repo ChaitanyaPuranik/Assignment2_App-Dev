@@ -64,14 +64,11 @@
                     />
 
                 <Picker
+                    x:Name="CarTypePicker"
                     Grid.Row="3" Grid.Column="1"
                     HorizontalOptions="Start"
                     VerticalOptions="Center"
                     Margin="5">
-                    
-                    <Picker.ItemsSource>
-                        
-                    </Picker.ItemsSource>
                 </Picker>
 
 
@@ -104,13 +101,11 @@
                     />
 
                 <Picker
+                    x:Name="YearPicker"
                     Grid.Row="5" Grid.Column="1"
                     HorizontalOptions="Start"
                     VerticalOptions="Center"
                     Margin="5">
-                    <Picker.ItemsSource>
-
-                    </Picker.ItemsSource>
                 </Picker>
 
                 <HorizontalStackLayout
