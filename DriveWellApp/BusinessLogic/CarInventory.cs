@@ -50,6 +50,17 @@ namespace DriveWellApp.BusinessLogic
         {
             get { return cars; }
         }
+
+        public float TotalInventoryNetPrice()
+        {
+            float totalInventoryNetPrice = 0;
+            foreach(Car carprice in cars) 
+            {
+                totalInventoryNetPrice += carprice.NetPrice;
+            }
+            return totalInventoryNetPrice;
+            
+        }
     }
 
     

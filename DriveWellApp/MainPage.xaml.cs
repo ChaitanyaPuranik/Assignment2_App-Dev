@@ -15,7 +15,7 @@ namespace DriveWellApp
             YearPicker.ItemsSource = GetYear();
             CarsListView.ItemsSource = inventory.Cars;
             CarCountLabel.Text = $"Car count {inventory.Cars.Count()}";
-            //InventoryPricelabel.Text = $"Total inventory net price: {}";
+            InventoryPricelabel.Text = $"Total inventory net price: {inventory.TotalInventoryNetPrice()}";
         }
 
         public List<int> GetYear()
@@ -44,6 +44,7 @@ namespace DriveWellApp
                 CarsListView.ItemsSource = null;
                 CarsListView.ItemsSource = inventory.Cars;
                 CarCountLabel.Text = $"Car count {inventory.Cars.Count()}";
+                InventoryPricelabel.Text = $"Total inventory net price: {inventory.TotalInventoryNetPrice()}";
             }
             catch (Exception ex)
             {
