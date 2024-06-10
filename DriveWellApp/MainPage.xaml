@@ -6,7 +6,7 @@
     <ScrollView>
         <VerticalStackLayout>
             <Grid
-                RowDefinitions="2*,*,*,*,*,*,5*" ColumnDefinitions="*,3*">
+                RowDefinitions="2*,*,*,*,*,*,*,5*" ColumnDefinitions="*,3*">
 
                 <Label
                     Grid.Row="0"
@@ -133,8 +133,26 @@
                         Margin="5"/>
 
                 </HorizontalStackLayout>
-                <!--Buttons-->
-                
+
+                <ListView
+                    x:Name="CarsListView"
+                    Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Margin="10"
+                    />
+
+                <Label
+                    x:Name="CarCountLabel"
+                    Grid.Row="7" Grid.Column="1"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"/>
+
+                <Label
+                    x:Name="InventoryPricelabel"
+                    Grid.Row="7" Grid.Column="1"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"/>
             </Grid>
         </VerticalStackLayout>
     </ScrollView>

@@ -23,6 +23,18 @@ namespace DriveWellApp.BusinessLogic
             ModelYear = modelYear;
         }
 
+        public float NetPrice
+        {
+            get { return _price + (0.13F * _price); }
+        }
+
+        public override string ToString()
+        {
+            for(int i = 1; ; i++) 
+            {
+                return $"Car{i}: VIN: {VIN}, Car Make: {CarMake}, Type: {CarType}, Year: {ModelYear}, NetPrice{NetPrice}";
+            }
+        }
         #region Properties
         public string VIN 
         {

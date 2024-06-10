@@ -4,13 +4,17 @@ namespace DriveWellApp
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
 
+        CarInventory inventory = new CarInventory();
         public MainPage()
         {
             InitializeComponent();
             CarTypePicker.ItemsSource = Enum.GetValues<CarType>();
             YearPicker.ItemsSource = GetYear();
+            CarsListView.ItemsSource = null;
+            CarsListView.ItemsSource = inventory.Cars;
+            CarCountLabel.Text = $"Car count {inventory.Cars.Count()}";
+            //InventoryPricelabel.Text = $"Total inventory net price: {}";
         }
 
         public List<int> GetYear()
