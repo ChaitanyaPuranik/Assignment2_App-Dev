@@ -30,9 +30,9 @@ namespace DriveWellApp.BusinessLogic
 
         public override string ToString()
         {
-            for(int i = 1; ; i++) 
+            for(int i = 1;; i++) 
             {
-                return $"Car{i}: VIN: {VIN}, Car Make: {CarMake}, Type: {CarType}, Year: {ModelYear}, NetPrice: {NetPrice}";
+                return $"Car: VIN: {VIN}, Car Make: {CarMake}, Type: {CarType}, Year: {ModelYear}, NetPrice: {NetPrice}";
             }
         }
         #region Properties

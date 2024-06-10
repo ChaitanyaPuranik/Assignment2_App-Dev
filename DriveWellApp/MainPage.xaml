@@ -65,14 +65,32 @@
                     VerticalOptions="Center"
                     />
 
+                <HorizontalStackLayout
+                    Grid.Row="3" Grid.Column="1"
+                    HorizontalOptions="Start" VerticalOptions="Center">
+                    
                 <Picker
                     x:Name="CarTypePicker"
-                    Grid.Row="3" Grid.Column="1"
                     HorizontalOptions="Start"
                     VerticalOptions="Center"
-                    Margin="5">
+                    Margin="5"
+                    SelectedItem="OnSelectCarType"
+                    >
                 </Picker>
 
+                <Image
+                    x:Name="CarImage"
+                    HorizontalOptions="Start" VerticalOptions="Center"
+                    Margin="5"
+                    HeightRequest="100"
+                    WidthRequest="100"
+                    >
+                    <Image.Source>
+                        <FileImageSource File="dotnet_bot.png"/>
+                    </Image.Source>
+                                       
+                </Image>
+                </HorizontalStackLayout>
 
                 <!-- Car Price Label and Entry-->
                 <Label
@@ -150,13 +168,17 @@
                     x:Name="CarCountLabel"
                     Grid.Row="7" Grid.Column="1"
                     HorizontalOptions="End"
-                    VerticalOptions="Start"/>
+                    VerticalOptions="Start"
+                    HorizontalTextAlignment="Center"
+                    />
 
                 <Label
                     x:Name="InventoryPricelabel"
                     Grid.Row="7" Grid.Column="1"
                     HorizontalOptions="End"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center"
+                    HorizontalTextAlignment="Start"
+                    />
             </Grid>
         </VerticalStackLayout>
     </ScrollView>
