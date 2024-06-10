@@ -32,7 +32,7 @@ namespace DriveWellApp.BusinessLogic
         {
             for(int i = 1; ; i++) 
             {
-                return $"Car{i}: VIN: {VIN}, Car Make: {CarMake}, Type: {CarType}, Year: {ModelYear}, NetPrice{NetPrice}";
+                return $"Car{i}: VIN: {VIN}, Car Make: {CarMake}, Type: {CarType}, Year: {ModelYear}, NetPrice: {NetPrice}";
             }
         }
         #region Properties
@@ -41,7 +41,7 @@ namespace DriveWellApp.BusinessLogic
             get { return _vin; }
             private set 
             { 
-                if( value.Length <= 0 || value.Length > 17)
+                if( value.Trim().Length <= 0 || value.Trim().Length > 17)
                 {
                     throw new Exception("VIN number must be of 17 alphanumeric characters");
                 }            
@@ -54,7 +54,7 @@ namespace DriveWellApp.BusinessLogic
             get { return _carMake; }
             private set 
             {
-                if(value.Length == 0)
+                if(value.Trim().Length == 0)
                 {
                     throw new Exception("Car Make cannot be empty");
                 }            

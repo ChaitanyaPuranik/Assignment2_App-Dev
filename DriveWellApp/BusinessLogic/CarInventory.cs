@@ -14,7 +14,7 @@ namespace DriveWellApp.BusinessLogic
         public CarInventory()
         {
             //Hardcoded Car instances
-            Car car1 = new Car("1HGCM82633A123456", "BMW", CarType.Sedan, 80000.50F, 2016);
+            Car car1 = new Car("1HGCM82633A123456", "BMW", CarType.Sedan, 80000.50F, 2021);
             Car car2 = new Car("JH4KA8260MC123456", "Mercedes", CarType.Sedan, 75000.50F, 2019);
             Car car3 = new Car("1J4GZ58S7VC123456", "Audi", CarType.Coupe, 90000.00F, 2022);
             AddCar(car1);
