@@ -111,6 +111,18 @@ namespace DriveWellApp
 
             }
         }
+
+        private void OnClearCar(object sender, EventArgs e)
+        {
+
+            vinEntry.Text = null;
+            makeEntry.Text = null;
+            CarTypePicker.ItemsSource = Enum.GetValues<CarType>();
+            CarImage.Source = "dotnet_bot.png";
+            //GenerateCorrespondingCar();
+            priceEntry.Text = null;
+            YearPicker.SelectedItem = null;
+        }
     }
 
 }

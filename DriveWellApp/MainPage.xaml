@@ -151,7 +151,8 @@
                         Text="Clear"
                         BackgroundColor="Blue"
                         TextColor="White"
-                        Margin="5"/>
+                        Margin="5"
+                        Clicked="OnClearCar"/>
 
                     <Button
                         Text="Update"
