@@ -19,6 +19,7 @@
 
                 <!-- VIN Label and Entry-->
                 <Label
+                    x:Name="vinLabel"
                     Grid.Row="1" Grid.Column="0"
                     Text="VIN:"
                     TextColor="White"
@@ -38,6 +39,7 @@
 
                 <!-- Car Make Label and Entry-->
                 <Label
+                    x:Name="carmakeLabel"
                     Grid.Row="2" Grid.Column="0"
                     Text="Car make: "
                     TextColor="White"
@@ -58,6 +60,7 @@
 
                 <!-- Car Type Label and Picker-->
                 <Label
+                    x:Name="carTypeLabel"
                     Grid.Row="3" Grid.Column="0"
                     Text="Car Type:"
                     TextColor="White"
@@ -71,6 +74,7 @@
                     
                 <Picker
                     x:Name="CarTypePicker"
+                    Title="Select car type"
                     HorizontalOptions="Start"
                     VerticalOptions="Center"
                     Margin="5"
@@ -123,6 +127,7 @@
 
                 <Picker
                     x:Name="YearPicker"
+                    Title="Select year"
                     Grid.Row="5" Grid.Column="1"
                     HorizontalOptions="Start"
                     VerticalOptions="Center"
@@ -152,7 +157,8 @@
                         Text="Update"
                         BackgroundColor="Blue"
                         TextColor="White"
-                        Margin="5"/>
+                        Margin="5"
+                        Clicked="OnUpdateCar"/>
 
                 </HorizontalStackLayout>
 

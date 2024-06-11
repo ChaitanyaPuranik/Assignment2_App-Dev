@@ -8,7 +8,6 @@ namespace DriveWellApp.BusinessLogic
 {
     enum CarType
     {
-        def,
         SUV,
         Coupe,
         Hatchback,

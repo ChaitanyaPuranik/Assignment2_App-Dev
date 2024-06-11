@@ -61,6 +61,22 @@ namespace DriveWellApp.BusinessLogic
             return totalInventoryNetPrice;
             
         }
+
+        public void UpdateCar(string vin, string carmake, CarType cartype, float price, int year)
+        {
+            foreach(Car car in cars)
+            {
+                if (car.VIN == vin)
+                {
+                    car.CarMake = carmake;
+                    car.CarType = cartype;
+                    car.Price = price;
+                    car.ModelYear = year;
+
+                }
+            }
+           
+        }
     }
 
     

@@ -71,7 +71,7 @@ namespace DriveWellApp
                 CarType cartype = (CarType)CarTypePicker.SelectedItem;
                 GenerateCorrespondingCar();
                 float price = float.Parse(priceEntry.Text);
-                int year = (int)YearPicker.SelectedItem;
+                int year = int.Parse(YearPicker.SelectedItem.ToString());
 
                 Car carobj = new Car(vin, carmake, cartype, price, year);
                 inventory.AddCar(carobj);
@@ -84,6 +84,31 @@ namespace DriveWellApp
             catch (Exception ex)
             {
                 DisplayAlert("Error404",$"{ex}","Ok"); 
+            }
+        }
+
+        private void OnUpdateCar(object sender, EventArgs e)
+        {
+            vinLabel.Text = "Enter Car VIN to update: ";
+            string vin = vinEntry.Text;
+
+            if (inventory.GetByVIN(vin) is null)
+            {
+                DisplayAlert("Error", $"Car with {vin} does not exists", "Ok");
+            }
+            else
+            {
+                string carmake = makeEntry.Text;
+                CarType cartype = (CarType)CarTypePicker.SelectedItem;
+                float price = float.Parse(priceEntry.Text);
+                int year = int.Parse(YearPicker.SelectedItem.ToString());
+                inventory.UpdateCar(vin, carmake, cartype, price, year);
+                DisplayAlert("Car", $"Car updated successfully", "Ok");
+                CarsListView.ItemsSource = null;
+                CarsListView.ItemsSource = inventory.Cars;
+                CarCountLabel.Text = $"Car count {inventory.Cars.Count()}";
+                InventoryPricelabel.Text = $"Total inventory net price: {inventory.TotalInventoryNetPrice()}";
+
             }
         }
     }

@@ -52,7 +52,7 @@ namespace DriveWellApp.BusinessLogic
         public string CarMake
         {
             get { return _carMake; }
-            private set 
+            internal protected set 
             {
                 if(value.Trim().Length == 0)
                 {
@@ -65,13 +65,13 @@ namespace DriveWellApp.BusinessLogic
         public CarType CarType
         {
             get { return _carType; }
-            private set { _carType = value; }
+            internal protected set { _carType = value; }
         }
 
         public float Price
         {
             get { return _price; }
-            private set 
+            internal protected set 
             {
                 if(value <= 0)
                 {
@@ -84,7 +84,7 @@ namespace DriveWellApp.BusinessLogic
         public int ModelYear
         {
             get { return _modelYear; }
-            private set { value = _modelYear; }
+            internal protected set { _modelYear = value; }
         }
         #endregion
     }
