@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DriveWellApp.BusinessLogic
 {
     enum CarType
-    {
+    {   
         None,
         SUV,
         Coupe,

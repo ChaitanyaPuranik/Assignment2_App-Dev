@@ -79,6 +79,7 @@
                     VerticalOptions="Center"
                     Margin="5"
                     SelectedItem="OnSelectCarType"
+                    SelectedIndexChanged="OnSelectFromPicker"
                     >
                 </Picker>
 
@@ -131,7 +132,8 @@
                     Grid.Row="5" Grid.Column="1"
                     HorizontalOptions="Start"
                     VerticalOptions="Center"
-                    Margin="5">
+                    Margin="5"
+                    >
                 </Picker>
 
                 <HorizontalStackLayout
@@ -170,22 +172,23 @@
                     HorizontalOptions="Start"
                     Margin="10"
                     />
-
+                
                 <Label
-                    x:Name="CarCountLabel"
                     Grid.Row="7" Grid.Column="1"
                     HorizontalOptions="End"
                     VerticalOptions="Start"
-                    HorizontalTextAlignment="Center"
+                    x:Name="CarCountLabel"
+                    Padding="5"
                     />
 
                 <Label
-                    x:Name="InventoryPricelabel"
                     Grid.Row="7" Grid.Column="1"
+                    x:Name="InventoryPricelabel"
                     HorizontalOptions="End"
                     VerticalOptions="Center"
-                    HorizontalTextAlignment="Start"
+                    Padding="5"
                     />
+                
             </Grid>
         </VerticalStackLayout>
     </ScrollView>

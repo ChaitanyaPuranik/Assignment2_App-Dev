@@ -16,9 +16,8 @@ namespace DriveWellApp
             CarsListView.ItemsSource = inventory.Cars;
             CarCountLabel.Text = $"Car count {inventory.Cars.Count()}";
             InventoryPricelabel.Text = $"Total inventory net price: {inventory.TotalInventoryNetPrice()}";
-            
-            //GenerateCorrespondingCar();
-        }
+   
+         }
 
         public List<int> GetYear()
         {
@@ -30,38 +29,6 @@ namespace DriveWellApp
             return years;
         }
 
-        public void GenerateCorrespondingCar()
-        {
-            if ((CarType)CarTypePicker.SelectedItem == null)
-            {
-                CarImage.Source = "dotnet_bot.png";
-            }
-
-            CarType cartype = (CarType)CarTypePicker.SelectedItem;
-            switch (cartype)
-            {
-                case CarType.Coupe:
-                    CarImage.Source = "coupe.png";
-                    break;
-
-                case CarType.Sedan:
-                    CarImage.Source = "sedan.png";
-                    break;
-
-                case CarType.SUV:
-                    CarImage.Source = "suv.png";
-                    break;
-
-                case CarType.Hatchback:
-                    CarImage.Source = "hatchback.png";
-                    break;
-
-                default:
-                    CarImage.Source = "dotnet_bot,png";
-                    break;
-            }
-        }
-
         private void OnAddCar(object sender, EventArgs e)
         {
             try
@@ -69,7 +36,6 @@ namespace DriveWellApp
                 string vin = vinEntry.Text;
                 string carmake = makeEntry.Text;
                 CarType cartype = (CarType)CarTypePicker.SelectedItem;
-                GenerateCorrespondingCar();
                 float price = float.Parse(priceEntry.Text);
                 int year = int.Parse(YearPicker.SelectedItem.ToString());
 
@@ -89,26 +55,33 @@ namespace DriveWellApp
 
         private void OnUpdateCar(object sender, EventArgs e)
         {
-            vinLabel.Text = "Enter Car VIN to update: ";
-            string vin = vinEntry.Text;
-
-            if (inventory.GetByVIN(vin) is null)
+            try
             {
-                DisplayAlert("Error", $"Car with {vin} does not exists", "Ok");
+                vinLabel.Text = "Enter Car VIN to update: ";
+                string vin = vinEntry.Text;
+
+                if (inventory.GetByVIN(vin) is null)
+                {
+                    DisplayAlert("Error", $"Car with {vin} does not exists", "Ok");
+                }
+                else
+                {
+                    string carmake = makeEntry.Text;
+                    CarType cartype = (CarType)CarTypePicker.SelectedItem;
+                    float price = float.Parse(priceEntry.Text);
+                    int year = int.Parse(YearPicker.SelectedItem.ToString());
+                    inventory.UpdateCar(vin, carmake, cartype, price, year);
+                    DisplayAlert("Car", $"Car updated successfully", "Ok");
+                    CarsListView.ItemsSource = null;
+                    CarsListView.ItemsSource = inventory.Cars;
+                    CarCountLabel.Text = $"Car count {inventory.Cars.Count()}";
+                    InventoryPricelabel.Text = $"Total inventory net price: {inventory.TotalInventoryNetPrice()}";
+
+                }
             }
-            else
+            catch(Exception ex)
             {
-                string carmake = makeEntry.Text;
-                CarType cartype = (CarType)CarTypePicker.SelectedItem;
-                float price = float.Parse(priceEntry.Text);
-                int year = int.Parse(YearPicker.SelectedItem.ToString());
-                inventory.UpdateCar(vin, carmake, cartype, price, year);
-                DisplayAlert("Car", $"Car updated successfully", "Ok");
-                CarsListView.ItemsSource = null;
-                CarsListView.ItemsSource = inventory.Cars;
-                CarCountLabel.Text = $"Car count {inventory.Cars.Count()}";
-                InventoryPricelabel.Text = $"Total inventory net price: {inventory.TotalInventoryNetPrice()}";
-
+                DisplayAlert("Error404", $"{ex}", "Ok");
             }
         }
 
@@ -117,11 +90,44 @@ namespace DriveWellApp
 
             vinEntry.Text = null;
             makeEntry.Text = null;
-            CarTypePicker.ItemsSource = Enum.GetValues<CarType>();
+            CarTypePicker.SelectedIndex = 0;
             CarImage.Source = "dotnet_bot.png";
-            //GenerateCorrespondingCar();
+            
             priceEntry.Text = null;
             YearPicker.SelectedItem = null;
+        }
+
+        private void OnSelectFromPicker(object sender, EventArgs e)
+        {
+            
+            CarType cartype = (CarType)CarTypePicker.SelectedItem;
+            switch (cartype)
+            {
+               
+                case CarType.Coupe:
+                    CarImage.Source = "coupe.png";
+                    break;
+
+                case CarType.Sedan:
+                    CarImage.Source = "sedan.png";
+                    break;
+
+                case CarType.SUV:
+                    CarImage.Source = "suv.png";
+                    break;
+
+                case CarType.Hatchback:
+                    CarImage.Source = "hatchback.png";
+                    break;
+
+                case CarType.None:
+                    CarImage.Source = "dotnet_bot,png";
+                    break;
+
+                default:
+                    CarTypePicker.SelectedItem = null;
+                    break;
+            }
         }
     }
 

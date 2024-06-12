@@ -41,7 +41,7 @@ namespace DriveWellApp.BusinessLogic
             get { return _vin; }
             private set 
             { 
-                if( value.Trim().Length <= 0 || value.Trim().Length > 17)
+                if( value.Trim().Length <= 0 || value.Trim().Length != 17)
                 {
                     throw new Exception("VIN number must be of 17 alphanumeric characters");
                 }            
@@ -65,7 +65,12 @@ namespace DriveWellApp.BusinessLogic
         public CarType CarType
         {
             get { return _carType; }
-            internal protected set { _carType = value; }
+            internal protected set 
+        {       if(value == CarType.None)
+                {
+                    throw new Exception("Car type cannot be None");
+                }
+                _carType = value; }
         }
 
         public float Price
