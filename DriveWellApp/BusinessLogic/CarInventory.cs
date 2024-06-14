@@ -11,6 +11,9 @@ namespace DriveWellApp.BusinessLogic
     {
         List<Car> cars = new List<Car>();
 
+        /// <summary>
+        /// Initializes 3 Car object instances with hardcoded values and Adds Car to List
+        /// </summary>
         public CarInventory()
         {
             //Hardcoded Car instances
@@ -20,12 +23,15 @@ namespace DriveWellApp.BusinessLogic
             AddCar(car1);
             AddCar(car2);
             AddCar(car3);
-
         }
 
+        /// <summary>
+        /// Adds carobject to List<cars>
+        /// </summary>
+        /// <param name="carobject">Type:Car. Accepts carobject as an arguement.</param>
+        /// <exception cref="Exception"></exception>
         public void AddCar(Car carobject)
         {
-
             if(GetByVIN(carobject.VIN) is not null)
             {
                 throw new Exception("Car already exists");
@@ -34,6 +40,11 @@ namespace DriveWellApp.BusinessLogic
                 
         }
 
+        /// <summary>
+        /// Returns 
+        /// </summary>
+        /// <param name="vin"></param>
+        /// <returns></returns>
         public Car GetByVIN(string vin)
         {
             foreach(Car c in cars)

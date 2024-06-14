@@ -7,7 +7,7 @@
         <VerticalStackLayout>
             <Grid
                 RowDefinitions="2*,*,*,*,*,*,*,5*" ColumnDefinitions="*,3*">
-
+                <!-- Header Label-->
                 <Label
                     Grid.Row="0"
                     Text="Drivewell Inc."
@@ -68,6 +68,7 @@
                     VerticalOptions="Center"
                     />
 
+                <!-- Horizontal layout for Picker and Image-->
                 <HorizontalStackLayout
                     Grid.Row="3" Grid.Column="1"
                     HorizontalOptions="Start" VerticalOptions="Center">
@@ -78,7 +79,7 @@
                     HorizontalOptions="Start"
                     VerticalOptions="Center"
                     Margin="5"
-                    SelectedItem="OnSelectCarType"
+                    
                     SelectedIndexChanged="OnSelectFromPicker"
                     >
                 </Picker>
@@ -135,7 +136,7 @@
                     Margin="5"
                     >
                 </Picker>
-
+                <!-- Horizontal Layout for Buttons--> 
                 <HorizontalStackLayout
                     Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
                     HorizontalOptions="Center" VerticalOptions="Center">
@@ -164,15 +165,18 @@
                         Clicked="OnUpdateCar"/>
 
                 </HorizontalStackLayout>
-
+                
+                <!-- Listview fro displaying car and its attributes-->
                 <ListView
                     x:Name="CarsListView"
                     Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2"
                     VerticalOptions="Center"
                     HorizontalOptions="Start"
                     Margin="10"
+                    ItemSelected="OnListviewSelect"
                     />
                 
+                <!-- Label to display Car Count-->
                 <Label
                     Grid.Row="7" Grid.Column="1"
                     HorizontalOptions="End"
@@ -180,7 +184,8 @@
                     x:Name="CarCountLabel"
                     Padding="5"
                     />
-
+                
+                <!-- Label to display Total Inventory Price -->
                 <Label
                     Grid.Row="7" Grid.Column="1"
                     x:Name="InventoryPricelabel"

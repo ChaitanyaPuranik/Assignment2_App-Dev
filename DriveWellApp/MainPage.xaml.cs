@@ -7,7 +7,9 @@ namespace DriveWellApp
 
         CarInventory inventory = new CarInventory();
 
-
+        /// <summary>
+        /// Initializes MainPage.
+        /// </summary>
         public MainPage()
         {
             InitializeComponent();
@@ -18,7 +20,10 @@ namespace DriveWellApp
             InventoryPricelabel.Text = $"Total inventory net price: {inventory.TotalInventoryNetPrice()}";
    
          }
-
+        /// <summary>
+        /// Creates list of years 
+        /// </summary>
+        /// <returns>List<years></returns>
         public List<int> GetYear()
         {
             List<int> years = new List<int>();
@@ -28,7 +33,13 @@ namespace DriveWellApp
             }
             return years;
         }
-
+        /// <summary>
+        /// Creates car object. 
+        /// Adds the car to CarInventory List<Cars>
+        /// Populates ItemSource with list of cars
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnAddCar(object sender, EventArgs e)
         {
             try
@@ -52,7 +63,11 @@ namespace DriveWellApp
                 DisplayAlert("Error404",$"{ex}","Ok"); 
             }
         }
-
+        /// <summary>
+        /// Updates the attributes of Car except VIN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnUpdateCar(object sender, EventArgs e)
         {
             try
@@ -76,7 +91,6 @@ namespace DriveWellApp
                     CarsListView.ItemsSource = inventory.Cars;
                     CarCountLabel.Text = $"Car count {inventory.Cars.Count()}";
                     InventoryPricelabel.Text = $"Total inventory net price: {inventory.TotalInventoryNetPrice()}";
-
                 }
             }
             catch(Exception ex)
@@ -85,6 +99,11 @@ namespace DriveWellApp
             }
         }
 
+        /// <summary>
+        /// Erases the input entered by user.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnClearCar(object sender, EventArgs e)
         {
 
@@ -92,11 +111,15 @@ namespace DriveWellApp
             makeEntry.Text = null;
             CarTypePicker.SelectedIndex = 0;
             CarImage.Source = "dotnet_bot.png";
-            
             priceEntry.Text = null;
             YearPicker.SelectedItem = null;
         }
 
+        /// <summary>
+        /// Generates corresponding image on selection from picker
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnSelectFromPicker(object sender, EventArgs e)
         {
             
@@ -128,6 +151,16 @@ namespace DriveWellApp
                     CarTypePicker.SelectedItem = null;
                     break;
             }
+        }
+
+        private void OnListviewSelect(object sender, SelectedItemChangedEventArgs e)
+        {
+            Car carobj = (Car)CarsListView.SelectedItem;
+            vinEntry.Text = carobj.VIN;
+            makeEntry.Text = carobj.CarMake;
+            CarTypePicker.SelectedItem = carobj.CarType;
+            priceEntry.Text = carobj.Price.ToString();
+            YearPicker.SelectedItem = carobj.ModelYear;
         }
     }
 
