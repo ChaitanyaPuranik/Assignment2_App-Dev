@@ -144,7 +144,7 @@ namespace DriveWellApp
                     break;
 
                 case CarType.None:
-                    CarImage.Source = "dotnet_bot,png";
+                    CarImage.Source = "dotnet_bot.png";
                     break;
 
                 default:
@@ -153,6 +153,11 @@ namespace DriveWellApp
             }
         }
 
+        /// <summary>
+        /// Updates a Entries corresponding to selected item from listview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnListviewSelect(object sender, SelectedItemChangedEventArgs e)
         {
             Car carobj = (Car)CarsListView.SelectedItem;

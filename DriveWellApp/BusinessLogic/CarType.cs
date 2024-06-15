@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace DriveWellApp.BusinessLogic
 {
+
+    /// <summary>
+    /// Enum for types of Cars
+    /// </summary>
     enum CarType
     {   
         None,

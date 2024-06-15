@@ -41,7 +41,7 @@ namespace DriveWellApp.BusinessLogic
         }
 
         /// <summary>
-        /// Returns 
+        /// Returns car object with matching VIN
         /// </summary>
         /// <param name="vin"></param>
         /// <returns></returns>
@@ -57,11 +57,18 @@ namespace DriveWellApp.BusinessLogic
             return null;
         }
 
+        /// <summary>
+        /// Returns List of cars.
+        /// </summary>
         public List<Car> Cars
         {
             get { return cars; }
         }
 
+        /// <summary>
+        /// Computes total inventory net price.
+        /// </summary>
+        /// <returns></returns>
         public float TotalInventoryNetPrice()
         {
             float totalInventoryNetPrice = 0;
@@ -70,9 +77,16 @@ namespace DriveWellApp.BusinessLogic
                 totalInventoryNetPrice += carprice.NetPrice;
             }
             return totalInventoryNetPrice;
-            
         }
 
+        /// <summary>
+        /// Updates Atributes of car with corresponding VIN
+        /// </summary>
+        /// <param name="vin"></param>
+        /// <param name="carmake"></param>
+        /// <param name="cartype"></param>
+        /// <param name="price"></param>
+        /// <param name="year"></param>
         public void UpdateCar(string vin, string carmake, CarType cartype, float price, int year)
         {
             foreach(Car car in cars)
@@ -83,7 +97,6 @@ namespace DriveWellApp.BusinessLogic
                     car.CarType = cartype;
                     car.Price = price;
                     car.ModelYear = year;
-
                 }
             }
            
